@@ -76,6 +76,7 @@
 			else
 			{
 				MessageBox.Show(Consts.GameOver);
+				Reset();
 			}
 
 			UpdateHints();

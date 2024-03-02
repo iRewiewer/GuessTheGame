@@ -28,7 +28,7 @@
 
 		private void correctBtn_Click(object sender, EventArgs e)
 		{
-			MessageBox.Show($"Correct! The game was {gameEnumerator.Current.Key}.");
+			MessageBox.Show($"Correct! The game was '{gameEnumerator.Current.Key}'.");
 			score += hintsLeft + 1;
 			gamesGuessed += 1;
 			RemoveCurrentGame();
@@ -37,7 +37,7 @@
 
 		private void wrongBtn_Click(object sender, EventArgs e)
 		{
-			MessageBox.Show($"Wrong! The game was {gameEnumerator.Current.Key}.");
+			MessageBox.Show($"Wrong! The game was '{gameEnumerator.Current.Key}'.");
 			RemoveCurrentGame();
 			NextImage();
 		}
