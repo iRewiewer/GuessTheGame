@@ -36,6 +36,7 @@
 			// 
 			// pictureBox
 			// 
+			pictureBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
 			pictureBox.BackgroundImageLayout = ImageLayout.Stretch;
 			pictureBox.Location = new Point(32, 84);
 			pictureBox.Name = "pictureBox";
@@ -47,6 +48,7 @@
 			// 
 			// nextBtn
 			// 
+			nextBtn.Anchor = AnchorStyles.Bottom;
 			nextBtn.AutoSize = true;
 			nextBtn.BackColor = Color.MediumSeaGreen;
 			nextBtn.FlatAppearance.BorderSize = 0;
@@ -63,6 +65,7 @@
 			// 
 			// hintsLabel
 			// 
+			hintsLabel.Anchor = AnchorStyles.Top;
 			hintsLabel.AutoSize = true;
 			hintsLabel.Font = new Font("Segoe UI Semibold", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
 			hintsLabel.ForeColor = SystemColors.Window;
