@@ -186,6 +186,7 @@
 				Application.Exit();
 			}
 
+			RandomizeGames();
 			gameEnumerator = games.GetEnumerator();
 			NextImage();
 		}
@@ -214,6 +215,23 @@
 			}
 
 			totalGames = games.Keys.Count;
+		}
+
+		private void RandomizeGames()
+		{
+			List<string> keys = games.Keys.ToList();
+			Random rnd = new Random();
+			int n = keys.Count;
+			while (n > 1)
+			{
+				n--;
+				int k = rnd.Next(n + 1);
+				var value = keys[k];
+				keys[k] = keys[n];
+				keys[n] = value;
+			}
+
+			games = keys.ToDictionary(key => key, key => games[key]);
 		}
 
 		private void SetFonts()

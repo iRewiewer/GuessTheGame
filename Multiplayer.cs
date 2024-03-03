@@ -1,4 +1,7 @@
-﻿namespace GuessTheGame
+﻿using System.Collections;
+using System.Collections.Generic;
+
+namespace GuessTheGame
 {
 	public partial class Multiplayer : Form
 	{
@@ -76,7 +79,8 @@
 			else
 			{
 				MessageBox.Show(Consts.GameOver);
-				Reset();
+				parent.Show();
+				this.Close();
 			}
 
 			UpdateHints();
@@ -133,11 +137,30 @@
 			if (games.Count == 0)
 			{
 				MessageBox.Show(Consts.EmptyImagesFolder);
-				Application.Exit();
+				parent.Show();
+				this.Close();
 			}
 
+			RandomizeGames();
 			gameEnumerator = games.GetEnumerator();
 			NextImage();
+		}
+
+		private void RandomizeGames()
+		{
+			List<string> keys = games.Keys.ToList();
+			Random rnd = new Random();
+			int n = keys.Count;
+			while (n > 1)
+			{
+				n--;
+				int k = rnd.Next(n + 1);
+				var value = keys[k];
+				keys[k] = keys[n];
+				keys[n] = value;
+			}
+
+			games = keys.ToDictionary(key => key, key => games[key]);
 		}
 
 		private void ScanGames()
